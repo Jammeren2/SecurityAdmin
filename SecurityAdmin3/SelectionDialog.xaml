@@ -1,0 +1,36 @@
+﻿<Window x:Class="SecurityAdmin3.SelectionDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="SelectionDialog" Height="400" Width="300" 
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize"
+        Background="#FF252526">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <ListBox x:Name="ItemsListBox" Grid.Row="0" Margin="0,0,0,10" 
+                 Background="#FF2D2D30" Foreground="White"
+                 MouseDoubleClick="ItemsListBox_MouseDoubleClick">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <!-- For Weapons -->
+                        <TextBlock Text="{Binding Brand}" FontWeight="Bold" Visibility="{Binding Brand, Converter={StaticResource NullToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding RegNumber}" Foreground="LightGray" Visibility="{Binding RegNumber, Converter={StaticResource NullToVisibilityConverter}}"/>
+
+                        <!-- For Special Tools -->
+                        <TextBlock Text="{Binding Name}" FontWeight="Bold" Visibility="{Binding Name, Converter={StaticResource NullToVisibilityConverter}}"/>
+                        <TextBlock Text="{Binding Number}" Foreground="LightGray" Visibility="{Binding Number, Converter={StaticResource NullToVisibilityConverter}}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+
+        <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="OKButton" Content="OK" Click="OKButton_Click" Width="75" Margin="0,0,10,0"/>
+            <Button x:Name="CancelButton" Content="Отмена" Click="CancelButton_Click" Width="75"/>
+        </StackPanel>
+    </Grid>
+</Window>

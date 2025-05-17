@@ -1,0 +1,59 @@
+﻿<!-- SecurityAdmin3/ShiftEditDialog.xaml -->
+<Window x:Class="SecurityAdmin3.ShiftEditDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Редактирование смены" Height="369" Width="500"
+        WindowStartupLocation="CenterOwner" Background="#FF252526">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Дата -->
+        <TextBlock Text="Дата:" Foreground="White" Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" Margin="0,5"/>
+        <DatePicker x:Name="dpDate" Grid.Row="0" Grid.Column="1" Height="30" Margin="0,5"/>
+
+        <!-- Временной интервал -->
+        <TextBlock Text="Временной интервал:" Foreground="White" Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,0,5"/>
+        <ComboBox x:Name="cbTimeInterval" Grid.Row="1" Grid.Column="1" Height="30" Margin="0,10,0,5">
+            <ComboBoxItem Content="08:00 - 20:00"/>
+            <ComboBoxItem Content="20:00 - 08:00"/>
+            <ComboBoxItem Content="08:00 - 14:00"/>
+            <ComboBoxItem Content="14:00 - 20:00"/>
+            <ComboBoxItem Content="20:00 - 02:00"/>
+            <ComboBoxItem Content="02:00 - 08:00"/>
+        </ComboBox>
+
+        <!-- Сотрудник -->
+        <TextBlock Text="Сотрудник:" Foreground="White" Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,0,5"/>
+        <ComboBox x:Name="cbEmployee" Grid.Row="2" Grid.Column="1" Height="30" Margin="0,10,0,5" DisplayMemberPath="Surname"/>
+
+        <!-- Клиент -->
+        <TextBlock Text="Клиент:" Foreground="White" Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,0,5"/>
+        <ComboBox x:Name="cbClient" Grid.Row="3" Grid.Column="1" Height="30" Margin="0,10,0,5" DisplayMemberPath="TITLE"/>
+
+        <!-- Договор -->
+        <TextBlock Text="Договор:" Foreground="White" Grid.Row="4" Grid.Column="0" VerticalAlignment="Center" Margin="0,10,0,5"/>
+        <ComboBox x:Name="cbContract" Grid.Row="4" Grid.Column="1" Height="30" Margin="0,10,0,5" DisplayMemberPath="ContractNumber"/>
+
+        <!-- Кнопки -->
+        <StackPanel Grid.Row="10" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,20,0,0">
+            <Button x:Name="btnSave" Content="Сохранить" Click="btnSave_Click" Width="100" Margin="0,0,10,0" Background="#FF0E639C" Foreground="White"/>
+            <Button x:Name="btnCancel" Content="Отмена" Click="btnCancel_Click" Width="100" Background="#FF3C3C3C" Foreground="White"/>
+        </StackPanel>
+    </Grid>
+</Window>

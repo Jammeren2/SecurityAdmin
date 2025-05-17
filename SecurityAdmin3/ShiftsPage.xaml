@@ -1,0 +1,50 @@
+﻿<!-- SecurityAdmin3/ShiftsPage.xaml -->
+<Page x:Class="SecurityAdmin3.ShiftsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="800"
+      Title="ShiftsPage" Background="#FF252526">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#FF1E1E1E" Padding="10">
+            <TextBlock Text="График дежурств" Foreground="White" FontSize="18" FontWeight="Bold"/>
+        </Border>
+
+        <!-- Calendar -->
+        <Calendar x:Name="calendar" Grid.Row="1" Margin="0,10" 
+                  Background="#FF2D2D30" Foreground="White"
+                  BorderBrush="#FF007ACC" BorderThickness="1"
+                  SelectedDatesChanged="calendar_SelectedDatesChanged"/>
+
+        <!-- Shifts List -->
+        <ListView x:Name="shiftsListView" Grid.Row="2" Margin="0,10" 
+                  Background="#FF2D2D30" Foreground="White">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Сотрудник" DisplayMemberBinding="{Binding EmployeeName}" Width="200"/>
+                    <GridViewColumn Header="Клиент" DisplayMemberBinding="{Binding ClientName}" Width="200"/>
+                    <GridViewColumn Header="Время" DisplayMemberBinding="{Binding TimeInterval}" Width="120"/>
+                    <GridViewColumn Header="Договор" DisplayMemberBinding="{Binding ContractNumber}" Width="120"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
+            <Button x:Name="btnAddShift" Content="Добавить" Click="btnAddShift_Click" Margin="0,0,10,0" Width="100"/>
+            <Button x:Name="btnEditShift" Content="Изменить" Click="btnEditShift_Click" Margin="0,0,10,0" Width="100"/>
+            <Button x:Name="btnDeleteShift" Content="Удалить" Click="btnDeleteShift_Click" Margin="0,0,10,0" Width="100"/>
+            <Button x:Name="btnBack" Content="Назад" Click="btnBack_Click" Width="100"/>
+        </StackPanel>
+    </Grid>
+</Page>

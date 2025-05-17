@@ -1,0 +1,56 @@
+﻿<!-- SecurityAdmin3/SpecialToolsPage.xaml -->
+<Page x:Class="SecurityAdmin3.SpecialToolsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="SpecialToolsPage" Background="#FF252526">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Border Grid.Row="0" Background="#FF1E1E1E" Padding="10">
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Специальные средства" Foreground="White" FontSize="18" FontWeight="Bold"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Data Grid -->
+        <DataGrid x:Name="ToolsGrid" Grid.Row="1" Margin="10"
+                  AutoGenerateColumns="False"
+                  Background="#FF2D2D30" Foreground="White"
+                  RowBackground="#FF2D2D30" AlternatingRowBackground="#FF252526"
+                  HeadersVisibility="Column" IsReadOnly="True"
+                  MouseDoubleClick="ToolsGrid_MouseDoubleClick">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                    <Setter Property="Background" Value="#FF1E1E1E"/>
+                    <Setter Property="Foreground" Value="White"/>
+                    <Setter Property="BorderBrush" Value="#FF3E3E40"/>
+                    <Setter Property="BorderThickness" Value="0,0,0,1"/>
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                    <Setter Property="FontWeight" Value="Bold"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Название" Binding="{Binding Name}" Width="*"/>
+                <DataGridTextColumn Header="Номер" Binding="{Binding Number}" Width="120"/>
+                <DataGridTextColumn Header="Описание" Binding="{Binding Description}" Width="*"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Buttons -->
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <Button x:Name="btnAdd" Content="Добавить" Click="btnAdd_Click" Margin="0,0,10,0" Padding="10" Width="100"/>
+            <Button x:Name="btnBack" Content="Назад" Click="btnBack_Click" Padding="10" Width="56"/>
+        </StackPanel>
+    </Grid>
+</Page>
